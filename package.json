@@ -1,0 +1,19 @@
+{
+  "name": "dayz_player_leaderboard_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dayzPlayerLeaderboardBot.js",
+  "scripts": {
+    "start": "nodemon --ignore \"playerJsons/\" dayzPlayerLeaderboardBot.js"
+  },
+  "author": "Capps",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "basic-ftp": "^4.6.2",
+    "discord.js": "^11.6.4",
+    "fs": "0.0.1-security",
+    "snekfetch": "^4.0.4",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
