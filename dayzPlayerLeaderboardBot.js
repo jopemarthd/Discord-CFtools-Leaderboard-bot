@@ -37,7 +37,7 @@ function processCommand(receivedMessage) {
       getLeaderboard(receivedMessage);
       break;
     case 'longestkill':
-      getLeaderboard(receivedMessage);
+      getLongestKill(receivedMessage);
       break;
     case 'test':
       generateLeaderboard(arguments, receivedMessage)
@@ -70,8 +70,8 @@ function getLeaderboard(receivedMessage) {
   var xhr = new XMLHttpRequest();
   xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
   xhr.open('POST', "https://cfapi.de/auth/login", true);
-  xhr.setRequestHeader("User-Agent","604e569a8728e10794f8d8f4");
-  xhr.setRequestHeader("Client-ID","ARJ0KGUPYCXM346TESFZN958");
+  xhr.setRequestHeader("User-Agent",settings['User-Agent']);
+  xhr.setRequestHeader("Client-ID",settings['Client-ID']);
   xhr.send(JSON.stringify(params));
   xhr.onreadystatechange = processRequestToken;
   function processRequestToken(e) {
@@ -137,6 +137,88 @@ function writeLeaderboard(playerData, receivedMessage) {
     inline: true,   
    }
    ServerLeaderBoad.fields.push(pDeaths)
+  
+}
+  
+  receivedMessage.channel.send({ embed: ServerLeaderBoad });
+}
+//#endregion
+
+//#region gets player Longest kill Leaderboard top 8
+function getLongestKill(receivedMessage) {
+  var params = {
+    "secret": settings.secret,
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+  xhr.open('POST', "https://cfapi.de/auth/login", true);
+  xhr.setRequestHeader("User-Agent",settings['User-Agent']);
+  xhr.setRequestHeader("Client-ID",settings['Client-ID']);
+  xhr.send(JSON.stringify(params));
+  xhr.onreadystatechange = processRequestToken;
+  function processRequestToken(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var t = JSON.parse(xhr.responseText);
+        SendlongestKill(t.access_token,receivedMessage);
+    }
+  }
+}
+
+function SendlongestKill(Token,receivedMessage)
+{
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+  xhr.open('GET', "https://cfapi.de/v2/omega/"+settings['Service-Token']+"/leaderboard?order=descending&stat=longest_kill_distance&limit=8", true);
+  xhr.setRequestHeader("User-Agent",settings['User-Agent']);
+  xhr.setRequestHeader("Client-ID",settings['Client-ID']);
+  xhr.setRequestHeader('Authorization', 'Bearer ' + Token);
+  xhr.send();
+  xhr.onreadystatechange = processRequest;
+   
+  function processRequest(e) {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var data = JSON.parse(xhr.responseText);
+          writeLongestKill(data,receivedMessage);
+      }
+  }
+}
+
+function writeLongestKill(playerData, receivedMessage) {
+  const ServerLeaderBoad = {
+    color: 0x0099ff,
+    title: 'Here is the top 8 server Stats',
+    url: settings.url,
+    author: {
+      name: settings.title,
+    },
+    thumbnail: {
+      url: settings.Logo,
+    },
+    fields: [
+
+    ],
+    timestamp: new Date(),
+    footer: {
+      text: 'Leaderboard made by JopemartHD',
+    },
+  };
+  for(var idx = 0;idx < 8; idx++)
+  {
+    var pRank = {      name: "Rank:",      
+    value: playerData.users[idx].rank,      
+    inline: true,   
+   }
+   ServerLeaderBoad.fields.push(pRank)
+    var pName = {      name: 'Name:',      
+    value: playerData.users[idx].latest_name,      
+    inline: true,   
+   }
+   ServerLeaderBoad.fields.push(pName)
+   var pDistance = {      name: 'Distance:',      
+    value: playerData.users[idx].longest_kill_distance,      
+    inline: true,   
+   }
+   ServerLeaderBoad.fields.push(pDistance)
   
 }
   
