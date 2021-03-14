@@ -1,0 +1,10 @@
+{
+	"token": "<Your Discord BOT Token>",
+	"secret":"<Your Hashed CFTools APP Key>",
+	"User-Agent":"<Your Application ID for your CFTools APP>",
+	"Client-ID":"<Your Client ID for your CFTools APP",
+	"Service-Token":"<Your service_token>",
+	"title" : "<Title for the Leaderboard message>",
+	"Logo" : "<Your image for the logo>",
+	"url" : "<Url you want the Hyperlink on the message to send the user>"
+}
