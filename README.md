@@ -36,7 +36,7 @@
 
 ## Discord Commands
 `!leaderboard`: Displays the leaderboard
-`!longestshot`: Displays the longest shot leaderboard
+`!longestkill`: Displays the longest kill leaderboard
 
 ## Error reporting
 Please post all error reports [here](https://github.com/jopemarthd/Discord-Leaderboard-CFToolsAPI/issues). Be sure to include error messages and any logs!
