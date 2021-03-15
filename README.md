@@ -5,7 +5,7 @@
 
 ### Instructions
 
-- Create settings.json file with the following format
+- Edit the settings.json file in the bot folder
     ```
 	{
 		"token": "<Your Discord BOT Token>",
@@ -36,6 +36,7 @@
 
 ## Discord Commands
 `!leaderboard`: Displays the leaderboard
+`!longestkill`: Displays the longest kill leaderboard
 
 ## Error reporting
 Please post all error reports [here](https://github.com/jopemarthd/Discord-Leaderboard-CFToolsAPI/issues). Be sure to include error messages and any logs!
