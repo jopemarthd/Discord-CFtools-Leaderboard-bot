@@ -5,7 +5,7 @@
 
 ### Instructions
 
-- Create settings.json file with the following format
+- Edit the settings.json file in the bot folder
     ```
 	{
 		"token": "<Your Discord BOT Token>",
