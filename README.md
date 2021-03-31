@@ -31,7 +31,7 @@
 - Get and install [Node.js](https://nodejs.org/en/download/)
 - run `npm i` to install node packages
 - run `npm instal xmlhttprequest --save` to intall what you will need to connect to the API
-- `npm install -g nodemon`
+- run `npm install -g nodemon`
 - Start bot with `npm start`
 
 
