@@ -22,7 +22,7 @@
     - secret is your Hashed app key (given when you create your CFTools APP)
     - User-Agent is your Application ID for your CFTools APP
     - Client-ID is your Client ID for your CFTools APP
-    - Service-Token is your Token that you use to access the information for that specific server, to get this token you have to send a request to                                     https://cfapi.de/v1/servicetokens to get it (it never changes so you only need to do it once).
+    - Service-Token is your Token that you use to access the information for that specific server, **to get this token you can use the .exe file on this github repository, the source code for that application will be here will be on the Cftools-Discordbot-Helper folder.**
     - title will change the title of the message on the bot
     - Logo it will change the Source url to the logo on the message
     - Url changes the Hyperlink on the message to send the user
