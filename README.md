@@ -19,7 +19,7 @@
 	}
     ```
     - token is your discord bot token
-    - secret is your Hashed app key (given when you create your CFTools APP)
+    - secret is your Hashed app key (given when you create your CFTools APP), Use https://coding.tools/sha256 to Hash your secret in SHA56 (You will need to hash your secret for teh bot to work.
     - User-Agent is your Application ID for your CFTools APP
     - Client-ID is your Client ID for your CFTools APP
     - Service-Token is your Token that you use to access the information for that specific server, **to get this token you can use the .exe file on this github repository, the source code for that application will be here will be on the Cftools-Discordbot-Helper folder.**
